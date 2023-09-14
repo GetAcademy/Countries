@@ -6,26 +6,36 @@
 
 function updateView() {
     let countries = [...model.costStats];
-    countries.sort((countryA, countryB) =>
-        countryA.meal == countryB.meal ? 0 :
-        countryA.meal > countryB.meal ? 1 : -1
-    );
-
-    document.getElementById('app').innerHTML = /*HTML*/`
-
-        <h1>Pause til 13:38</h1>
-        
+    sort(countries);
+    document.getElementById('app').innerHTML = /*HTML*/`       
         <table>
             <tr>
-                <th>Land</th>
-                <th>Pris øl</th>
-                <th>Pris vin</th>
-                <th>Pris kaffe</th>
-                <th>Pris måltid</th>
-                <th>Pris leilighet 1mnd</th>
+                <th>Land ${getSortButtonsHtml('country')}</th>
+                <th>Pris øl ${getSortButtonsHtml('beer')}</th>
+                <th>Pris vin ${getSortButtonsHtml('wine')}</th>
+                <th>Pris kaffe ${getSortButtonsHtml('coffee')}</th>
+                <th>Pris måltid ${getSortButtonsHtml('meal')}</th>
+                <th>Pris leilighet 1mnd ${getSortButtonsHtml('apartment')}</th>
             </tr>
             ${createCountryRowsHtml(countries)}
         </table>
+    `;
+}
+
+function sort(countries) {
+    const sortField = model.sort.field;
+    if (sortField != null) {
+        const direction = model.sort.direction;
+        countries.sort((countryA, countryB) => countryA[sortField] == countryB[sortField] ? 0 :
+            countryA[sortField] > countryB[sortField] ? direction : -direction
+        );
+    }    
+}
+
+function getSortButtonsHtml(sortField) {
+    return /*HTML*/`
+        <span onclick="setSort('${sortField}', 1)">▲</span>
+        <span onclick="setSort('${sortField}', -1)">▼</span>
     `;
 }
 

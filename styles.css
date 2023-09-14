@@ -24,3 +24,6 @@ tr:nth-child(even){
     background-color: lightgray;
 }
 
+th > span{
+    cursor: pointer;
+}

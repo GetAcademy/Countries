@@ -1,5 +1,8 @@
 const model = {
-    sortBy: 'meal',
+    sort: {
+        field: null,
+        direction: null,
+    },
     costStats: [
         {
             rank: 1,
