@@ -1,4 +1,5 @@
 const model = {
+    sortBy: 'meal',
     costStats: [
         {
             rank: 1,

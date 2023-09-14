@@ -1,0 +1,26 @@
+table {
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid gray;
+    padding: 6px;
+}
+
+td{
+    text-align: right;
+}
+
+td:first-child{
+    text-align: left;
+}
+
+tr:first-child{
+  background-color: darkblue;  
+  color: white;
+}
+
+tr:nth-child(even){
+    background-color: lightgray;
+}
+
