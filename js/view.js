@@ -2,13 +2,30 @@
 
 function updateView() {
     let countriesHtml = '';
-    for(let country of model.costStats){
-        countriesHtml += `<li>${country.country} øl: ${country.beer}kr</li>`;
+    for(let country of model.costStats) {
+        countriesHtml += /*HTML*/`
+            <tr>
+                <td>${country.country}</td>
+                <td>${country.beer}</td>
+                <td>${country.wine}</td>
+                <td>${country.coffee}</td>
+                <td>${country.meal}</td>
+                <td>${country.apartment}</td>
+            </tr>
+        `;
     }
 
     document.getElementById('app').innerHTML = /*HTML*/`
-
-        <h1>Pause til 13:05</h1>
-        ${countriesHtml}
+        <table>
+            <tr>
+                <th>Land</th>
+                <th>Pris øl</th>
+                <th>Pris vin</th>
+                <th>Pris kaffe</th>
+                <th>Pris måltid</th>
+                <th>Pris leilighet 1mnd</th>
+            </tr>
+            ${countriesHtml}
+        </table>
     `;
 }
