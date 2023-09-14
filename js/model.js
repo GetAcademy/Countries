@@ -1,4 +1,897 @@
 const model = {
+    costStats: [
+        {
+            rank: 1,
+            country: "Switzerland",
+            meal: 1317.66,
+            beer: 83.85,
+            wine: 149.73,
+            apartment: 19879.32,
+            coffee: 58.07
+        },
+        {
+            rank: 2,
+            country: "Denmark",
+            meal: 1077.83,
+            beer: 76.99,
+            wine: 100.08,
+            apartment: 11849.16,
+            coffee: 60.18
+        },
+        {
+            rank: 3,
+            country: "Norway",
+            meal: 1000,
+            beer: 98.5,
+            wine: 150,
+            apartment: 11305.64,
+            coffee: 45.46
+        },
+        {
+            rank: 4,
+            country: "Finland",
+            meal: 918.96,
+            beer: 80.41,
+            wine: 137.84,
+            apartment: 9054.19,
+            coffee: 45.19
+        },
+        {
+            rank: 5,
+            country: "Ireland",
+            meal: 918.96,
+            beer: 63.18,
+            wine: 126.36,
+            apartment: 16948.07,
+            coffee: 40.49
+        },
+        {
+            rank: 6,
+            country: "Belgium",
+            meal: 861.52,
+            beer: 45.95,
+            wine: 80.41,
+            apartment: 9373.92,
+            coffee: 36.73
+        },
+        {
+            rank: 7,
+            country: "Israel",
+            meal: 838.35,
+            beer: 83.84,
+            wine: 111.78,
+            apartment: 11163.06,
+            coffee: 38.19
+        },
+        {
+            rank: 8,
+            country: "Luxembourg",
+            meal: 829.36,
+            beer: 57.43,
+            wine: 91.9,
+            apartment: 18048.25,
+            coffee: 42.42
+        },
+        {
+            rank: 9,
+            country: "Australia",
+            meal: 825.85,
+            beer: 68.82,
+            wine: 137.64,
+            apartment: 16015.78,
+            coffee: 36.06
+        },
+        {
+            rank: 10,
+            country: "Malta",
+            meal: 804.09,
+            beer: 34.46,
+            wine: 68.92,
+            apartment: 10218.66,
+            coffee: 27.34
+        },
+        {
+            rank: 11,
+            country: "Netherlands",
+            meal: 804.09,
+            beer: 57.43,
+            wine: 68.81,
+            apartment: 13791.96,
+            coffee: 35.88
+        },
+        {
+            rank: 12,
+            country: "United Kingdom",
+            meal: 801.71,
+            beer: 60.13,
+            wine: 93.53,
+            apartment: 12426.08,
+            coffee: 40.53
+        },
+        {
+            rank: 13,
+            country: "United States",
+            meal: 801.62,
+            beer: 64.13,
+            wine: 149.58,
+            apartment: 19636.06,
+            coffee: 51.48
+        },
+        {
+            rank: 14,
+            country: "Singapore",
+            meal: 786.27,
+            beer: 78.63,
+            wine: 235.88,
+            apartment: 35226.1,
+            coffee: 48.37
+        },
+        {
+            rank: 15,
+            country: "Sweden",
+            meal: 769.54,
+            beer: 69.26,
+            wine: 96.19,
+            apartment: 8774.71,
+            coffee: 39.97
+        },
+        {
+            rank: 16,
+            country: "New Zealand",
+            meal: 760.47,
+            beer: 63.37,
+            wine: 101.4,
+            apartment: 11734.95,
+            coffee: 34.5
+        },
+        {
+            rank: 17,
+            country: "Puerto Rico",
+            meal: 748.18,
+            beer: 25.38,
+            wine: 160.32,
+            apartment: 12076.41,
+            coffee: 33
+        },
+        {
+            rank: 18,
+            country: "Canada",
+            meal: 710.77,
+            beer: 55.28,
+            wine: 134.26,
+            apartment: 13365.69,
+            coffee: 38.11
+        },
+        {
+            rank: 19,
+            country: "Germany",
+            meal: 689.22,
+            beer: 45.95,
+            wine: 57.43,
+            apartment: 9609.97,
+            coffee: 36.83
+        },
+        {
+            rank: 20,
+            country: "Cyprus",
+            meal: 689.22,
+            beer: 34.46,
+            wine: 80.41,
+            apartment: 11163.77,
+            coffee: 37.62
+        },
+        {
+            rank: 21,
+            country: "Austria",
+            meal: 689.22,
+            beer: 45.95,
+            wine: 80.41,
+            apartment: 9431.83,
+            coffee: 39.27
+        },
+        {
+            rank: 22,
+            country: "Italy",
+            meal: 689.22,
+            beer: 57.43,
+            wine: 68.92,
+            apartment: 7667.68,
+            coffee: 17.67
+        },
+        {
+            rank: 23,
+            country: "France",
+            meal: 689.22,
+            beer: 68.92,
+            wine: 80.41,
+            apartment: 8291.38,
+            coffee: 33.38
+        },
+        {
+            rank: 24,
+            country: "Hong Kong (China)",
+            meal: 682.83,
+            beer: 68.28,
+            wine: 204.85,
+            apartment: 24907.14,
+            coffee: 54.69
+        },
+        {
+            rank: 25,
+            country: "Estonia",
+            meal: 654.76,
+            beer: 51.69,
+            wine: 91.9,
+            apartment: 6459.92,
+            coffee: 35.22
+        },
+        {
+            rank: 26,
+            country: "Costa Rica",
+            meal: 599.57,
+            beer: 29.98,
+            wine: 139.9,
+            apartment: 6417.64,
+            coffee: 33.74
+        },
+        {
+            rank: 27,
+            country: "Panama",
+            meal: 587.86,
+            beer: 21.38,
+            wine: 96.19,
+            apartment: 8770.94,
+            coffee: 37.01
+        },
+        {
+            rank: 28,
+            country: "Qatar",
+            meal: 587.11,
+            beer: "-",
+            wine: "-",
+            apartment: 17713.21,
+            coffee: 57.91
+        },
+        {
+            rank: 29,
+            country: "United Arab Emirates",
+            meal: 581.99,
+            beer: 113.49,
+            wine: 145.5,
+            apartment: 12995.06,
+            coffee: 54.12
+        },
+        {
+            rank: 30,
+            country: "Latvia",
+            meal: 574.35,
+            beer: 39.06,
+            wine: 80.41,
+            apartment: 4316.62,
+            coffee: 28.72
+        },
+        {
+            rank: 31,
+            country: "Lithuania",
+            meal: 574.35,
+            beer: 49.39,
+            wine: 91.78,
+            apartment: 7113.41,
+            coffee: 32.93
+        },
+        {
+            rank: 32,
+            country: "Uruguay",
+            meal: 558.69,
+            beer: 41.9,
+            wine: 83.8,
+            apartment: 6429.62,
+            coffee: 44.41
+        },
+        {
+            rank: 33,
+            country: "Armenia",
+            meal: 554.99,
+            beer: "18.apr",
+            wine: 97.12,
+            apartment: 10665,
+            coffee: 33.38
+        },
+        {
+            rank: 34,
+            country: "Kuwait",
+            meal: 554.22,
+            beer: "-",
+            wine: "-",
+            apartment: 9326.15,
+            coffee: 54.98
+        },
+        {
+            rank: 35,
+            country: "Jamaica",
+            meal: 553.71,
+            beer: 24.22,
+            wine: 103.82,
+            apartment: 4925.51,
+            coffee: 34.2
+        },
+        {
+            rank: 36,
+            country: "Venezuela",
+            meal: 534.42,
+            beer: "16.mar",
+            wine: 85.51,
+            apartment: 2178.21,
+            coffee: 19.94
+        },
+        {
+            rank: 37,
+            country: "Croatia",
+            meal: 534.14,
+            beer: 30.44,
+            wine: 61.23,
+            apartment: 5554.38,
+            coffee: 20.78
+        },
+        {
+            rank: 38,
+            country: "Greece",
+            meal: 516.91,
+            beer: 45.95,
+            wine: 80.41,
+            apartment: 4760.42,
+            coffee: 36.49
+        },
+        {
+            rank: 39,
+            country: "Spain",
+            meal: 516.91,
+            beer: 28.72,
+            wine: 57.43,
+            apartment: 8697.42,
+            coffee: 20.26
+        },
+        {
+            rank: 40,
+            country: "Slovenia",
+            meal: 516.91,
+            beer: 32.16,
+            wine: 68.92,
+            apartment: 6887.44,
+            coffee: 20.35
+        },
+        {
+            rank: 41,
+            country: "Saudi Arabia",
+            meal: 484.42,
+            beer: "-",
+            wine: "-",
+            apartment: 5009.43,
+            coffee: 40.47
+        },
+        {
+            rank: 42,
+            country: "Chile",
+            meal: 481.9,
+            beer: 36.14,
+            wine: 54.21,
+            apartment: 4909.37,
+            coffee: "30.sep"
+        },
+        {
+            rank: 43,
+            country: "Dominican Republic",
+            meal: 470.79,
+            beer: 28.25,
+            wine: 103.57,
+            apartment: 5132.79,
+            coffee: 22.45
+        },
+        {
+            rank: 44,
+            country: "Portugal",
+            meal: 459.48,
+            beer: 22.97,
+            wine: 45.95,
+            apartment: 9077.09,
+            coffee: 16.7
+        },
+        {
+            rank: 45,
+            country: "Jordan",
+            meal: 452.77,
+            beer: 67.92,
+            wine: 226.38,
+            apartment: 3349.36,
+            coffee: 37.25
+        },
+        {
+            rank: 46,
+            country: "Hungary",
+            meal: 449.06,
+            beer: 20.96,
+            wine: 47.9,
+            apartment: 5009.73,
+            coffee: 20.42
+        },
+        {
+            rank: 47,
+            country: "Belarus",
+            meal: 423.56,
+            beer: 13.9,
+            wine: 84.71,
+            apartment: 3830.64,
+            coffee: 19.67
+        },
+        {
+            rank: 48,
+            country: "Bulgaria",
+            meal: 410.98,
+            beer: 20.55,
+            wine: 58.71,
+            apartment: 4001.9,
+            coffee: 19.76
+        },
+        {
+            rank: 49,
+            country: "Georgia",
+            meal: 407.95,
+            beer: 18.36,
+            wine: 65.27,
+            apartment: 7932.54,
+            coffee: 29.86
+        },
+        {
+            rank: 50,
+            country: "South Korea",
+            meal: 403.47,
+            beer: 32.28,
+            wine: 161.39,
+            apartment: 5369.31,
+            coffee: 39.13
+        },
+        {
+            rank: 51,
+            country: "Slovakia",
+            meal: 402.04,
+            beer: 20.68,
+            wine: 57.43,
+            apartment: 6028.52,
+            coffee: 23.81
+        },
+        {
+            rank: 52,
+            country: "Montenegro",
+            meal: 402.04,
+            beer: 25.27,
+            wine: 57.43,
+            apartment: 6181.3,
+            coffee: 19.98
+        },
+        {
+            rank: 53,
+            country: "Poland",
+            meal: 397.32,
+            beer: 29.8,
+            wine: 62.08,
+            apartment: 7232.2,
+            coffee: 30.89
+        },
+        {
+            rank: 54,
+            country: "Czech Republic",
+            meal: 386.12,
+            beer: 21.16,
+            wine: 61.14,
+            apartment: 7754.9,
+            coffee: 28.67
+        },
+        {
+            rank: 55,
+            country: "Romania",
+            meal: 383.53,
+            beer: 18.49,
+            wine: 57.79,
+            apartment: 4082.29,
+            coffee: 23.56
+        },
+        {
+            rank: 56,
+            country: "Albania",
+            meal: 377.62,
+            beer: 21.58,
+            wine: 86.31,
+            apartment: 4028.73,
+            coffee: 15.76
+        },
+        {
+            rank: 57,
+            country: "Mexico",
+            meal: 374.59,
+            beer: 24.97,
+            wine: 124.86,
+            apartment: 5916.51,
+            coffee: 32.12
+        },
+        {
+            rank: 58,
+            country: "Ecuador",
+            meal: 374.09,
+            beer: 21.38,
+            wine: 105.81,
+            apartment: 3965.78,
+            coffee: 25.77
+        },
+        {
+            rank: 59,
+            country: "Guatemala",
+            meal: 373.52,
+            beer: 23.77,
+            wine: 81.49,
+            apartment: 5181.57,
+            coffee: 25.52
+        },
+        {
+            rank: 60,
+            country: "Japan",
+            meal: 363.2,
+            beer: "29.jun",
+            wine: 72.64,
+            apartment: 6487.68,
+            coffee: 31.91
+        },
+        {
+            rank: 61,
+            country: "Mauritius",
+            meal: 357.87,
+            beer: 23.86,
+            wine: 113.32,
+            apartment: 4390.94,
+            coffee: 24.17
+        },
+        {
+            rank: 62,
+            country: "Kazakhstan",
+            meal: 344.06,
+            beer: 13.76,
+            wine: 80.28,
+            apartment: 6006.22,
+            coffee: 21.22
+        },
+        {
+            rank: 63,
+            country: "Serbia",
+            meal: 342.84,
+            beer: "22.apr",
+            wine: 68.57,
+            apartment: 5656.88,
+            coffee: "19.aug"
+        },
+        {
+            rank: 64,
+            country: "South Africa",
+            meal: 341.4,
+            beer: 19.92,
+            wine: 45.52,
+            apartment: 4336.59,
+            coffee: 18.14
+        },
+        {
+            rank: 65,
+            country: "Taiwan",
+            meal: 335.36,
+            beer: "20.des",
+            wine: 134.14,
+            apartment: 4594.83,
+            coffee: 30.52
+        },
+        {
+            rank: 66,
+            country: "Azerbaijan",
+            meal: 314.36,
+            beer: "des.57",
+            wine: 62.87,
+            apartment: 3544.12,
+            coffee: 31.2
+        },
+        {
+            rank: 67,
+            country: "Russia",
+            meal: 310.05,
+            beer: 16.61,
+            wine: 55.37,
+            apartment: 3525.65,
+            coffee: 17.8
+        },
+        {
+            rank: 68,
+            country: "Brazil",
+            meal: 304.35,
+            beer: 19.57,
+            wine: 86.96,
+            apartment: 3379.86,
+            coffee: "18.apr"
+        },
+        {
+            rank: 69,
+            country: "Oman",
+            meal: 298.48,
+            beer: 111.06,
+            wine: 194.36,
+            apartment: 6030.57,
+            coffee: 48.71
+        },
+        {
+            rank: 70,
+            country: "China",
+            meal: 293.88,
+            beer: "okt.29",
+            wine: 117.55,
+            apartment: 5363.9,
+            coffee: 36.68
+        },
+        {
+            rank: 71,
+            country: "Kenya",
+            meal: 291.63,
+            beer: 18.23,
+            wine: 87.49,
+            apartment: 2237.28,
+            coffee: 19.64
+        },
+        {
+            rank: 72,
+            country: "Ukraine",
+            meal: 289.49,
+            beer: "nov.58",
+            wine: 49.21,
+            apartment: 3819.51,
+            coffee: 13.6
+        },
+        {
+            rank: 73,
+            country: "Bosnia And Herzegovina",
+            meal: 281.74,
+            beer: 17.61,
+            wine: 58.7,
+            apartment: 2461.58,
+            coffee: 13.87
+        },
+        {
+            rank: 74,
+            country: "Palestine",
+            meal: 279.45,
+            beer: 29.34,
+            wine: 125.75,
+            apartment: 3221.07,
+            coffee: "25.jan"
+        },
+        {
+            rank: 75,
+            country: "Argentina",
+            meal: 267.21,
+            beer: 20.31,
+            wine: 32.06,
+            apartment: 3014,
+            coffee: 16.62
+        },
+        {
+            rank: 76,
+            country: "Iran",
+            meal: 256.52,
+            beer: "-",
+            wine: "-",
+            apartment: 3809.48,
+            coffee: 13.46
+        },
+        {
+            rank: 77,
+            country: "Peru",
+            meal: 245.61,
+            beer: "23.des",
+            wine: 86.69,
+            apartment: 4179.59,
+            coffee: 27.51
+        },
+        {
+            rank: 78,
+            country: "Colombia",
+            meal: 241.46,
+            beer: "12.jul",
+            wine: 93.9,
+            apartment: 3240.54,
+            coffee: 15.2
+        },
+        {
+            rank: 79,
+            country: "Bolivia",
+            meal: 239.8,
+            beer: 18.57,
+            wine: 62.98,
+            apartment: 3198.73,
+            coffee: "25.okt"
+        },
+        {
+            rank: 80,
+            country: "Thailand",
+            meal: 239.37,
+            beer: 20.95,
+            wine: 179.53,
+            apartment: 4177.77,
+            coffee: 19.77
+        },
+        {
+            rank: 81,
+            country: "Uzbekistan",
+            meal: 235.38,
+            beer: "okt.69",
+            wine: 42.75,
+            apartment: 5178.72,
+            coffee: 16.94
+        },
+        {
+            rank: 82,
+            country: "Iraq",
+            meal: 234.95,
+            beer: 21.36,
+            wine: 122.46,
+            apartment: 3816.92,
+            coffee: 24.23
+        },
+        {
+            rank: 83,
+            country: "Kosovo (Disputed Territory)",
+            meal: 229.74,
+            beer: 20.68,
+            wine: 45.95,
+            apartment: 3388.13,
+            coffee: "des.30"
+        },
+        {
+            rank: 84,
+            country: "Philippines",
+            meal: 226.24,
+            beer: 13.2,
+            wine: 75.41,
+            apartment: 3471.65,
+            coffee: 25.54
+        },
+        {
+            rank: 85,
+            country: "North Macedonia",
+            meal: 223.58,
+            beer: 18.63,
+            wine: 46.58,
+            apartment: 2416.58,
+            coffee: 15.39
+        },
+        {
+            rank: 86,
+            country: "Vietnam",
+            meal: 220.79,
+            beer: "11.apr",
+            wine: 103.08,
+            apartment: 3856.52,
+            coffee: 19.61
+        },
+        {
+            rank: 87,
+            country: "Morocco",
+            meal: 212.03,
+            beer: 26.3,
+            wine: 73.63,
+            apartment: 3284.55,
+            coffee: 16.62
+        },
+        {
+            rank: 88,
+            country: "Syria",
+            meal: 202.55,
+            beer: 16.57,
+            wine: 53.44,
+            apartment: 1721.04,
+            coffee: "sep.63"
+        },
+        {
+            rank: 89,
+            country: "Nepal",
+            meal: 201.38,
+            beer: 24.17,
+            wine: 64.44,
+            apartment: 1252.59,
+            coffee: 15.43
+        },
+        {
+            rank: 90,
+            country: "Turkey",
+            meal: 198.33,
+            beer: 19.83,
+            wine: 79.33,
+            apartment: 3830.01,
+            coffee: "19.okt"
+        },
+        {
+            rank: 91,
+            country: "Algeria",
+            meal: 194.82,
+            beer: 15.59,
+            wine: 74.03,
+            apartment: 1794.81,
+            coffee: "jun.62"
+        },
+        {
+            rank: 92,
+            country: "Malaysia",
+            meal: 182.66,
+            beer: 34.25,
+            wine: 159.82,
+            apartment: 3793.7,
+            coffee: 26.51
+        },
+        {
+            rank: 93,
+            country: "Indonesia",
+            meal: 174.03,
+            beer: 27.84,
+            wine: 208.83,
+            apartment: 3231.29,
+            coffee: 19.45
+        },
+        {
+            rank: 94,
+            country: "Egypt",
+            meal: 172.95,
+            beer: 17.29,
+            wine: 77.83,
+            apartment: 1585.34,
+            coffee: 14.74
+        },
+        {
+            rank: 95,
+            country: "Tunisia",
+            meal: 170.67,
+            beer: 13.65,
+            wine: 51.2,
+            apartment: 2062.46,
+            coffee: "jul.89"
+        },
+        {
+            rank: 96,
+            country: "Sri Lanka",
+            meal: 165.24,
+            beer: 16.52,
+            wine: 99.14,
+            apartment: 2180.14,
+            coffee: 19.97
+        },
+        {
+            rank: 97,
+            country: "India",
+            meal: 128.85,
+            beer: 20.62,
+            wine: 96.64,
+            apartment: 2001.66,
+            coffee: 18.59
+        },
+        {
+            rank: 98,
+            country: "Pakistan",
+            meal: 116.93,
+            beer: "-",
+            wine: "-",
+            apartment: 1071.43,
+            coffee: 14.85
+        },
+        {
+            rank: 99,
+            country: "Bangladesh",
+            meal: 97.42,
+            beer: "-",
+            wine: "-",
+            apartment: 1045.52,
+            coffee: "19.feb"
+        }
+    ],
     countries: [
         {
             name: "Afghanistan",
@@ -393,7 +1286,7 @@ const model = {
             area: 45227,
         },
         {
-            name: "Eswatini (fmr. "Swaziland")",
+            name: "Eswatini (fmr. Swaziland)",
             continent: "Africa",
             capital: "Mbabane",
             population: 1160164,
