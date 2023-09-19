@@ -1,12 +1,9 @@
 "use strict";
 
-// sortering 
-// filtrering
-// paginering
-
 function updateView() {
-    let countries = [...model.costStats];
-    sort(countries);
+    let countries = sort(model.costStats);
+    countries = filter(countries);
+    countries = doPaging(countries);
     document.getElementById('app').innerHTML = /*HTML*/`       
         <table>
             <tr>
@@ -23,32 +20,84 @@ function updateView() {
             </tr>
             ${createCountryRowsHtml(countries)}
         </table>
+        ${createPagingHtml()}
     `;
 }
 
-function createContinentSelectHtml(){
+function createPagingHtml() {
+    let html = '';
+    let pageCount = Math.ceil(model.costStats.length / model.paging.pageSize);
+    for (let pageNo = 1; pageNo <= pageCount; pageNo++) {
+        if (pageNo == model.paging.pageIndex + 1) {
+            html += `${pageNo} `;
+        } else {
+            html += `<a href="javascript:goToPage(${pageNo})">${pageNo}</a> `;
+        }
+    }
+    return html + /*HTML*/`
+        Vis: 
+        <select onchange="setPageSize(this.value)">
+            <option ${model.paging.pageSize == 5 ? 'selected' : ''}>5</option>
+            <option ${model.paging.pageSize == 10 ? 'selected' : ''}>10</option>
+            <option ${model.paging.pageSize == 25 ? 'selected' : ''}>25</option>
+            <option ${model.paging.pageSize == 50 ? 'selected' : ''}>50</option>
+        </select>
+    `;
+}
+
+function doPaging(originalCountries) {
+    let countries = [];
+    const rowCountToSkip = model.paging.pageIndex * model.paging.pageSize;
+    const startIndex = rowCountToSkip;
+    const endIndex = Math.min(startIndex + model.paging.pageSize,
+        originalCountries.length - 1);
+    for (let i = startIndex; i < endIndex; i++) {
+        const country = originalCountries[i];
+        countries.push(country);
+    }
+    return countries;
+}
+
+function filter(allCountries) {
+    const selectedContinent = model.filter.continent;
+    if (selectedContinent === null) return allCountries;
+    let countries = [];
+    for (let country of allCountries) {
+        if (country.continent == selectedContinent) {
+            countries.push(country);
+        }
+    }
+    return countries;
+}
+
+function createContinentSelectHtml() {
     const continents = model.filter.continents;
     let optionsHtml = '';
-    for(let continent of continents){
+    for (let continent of continents) {
+        let selected = continent == model.filter.continent ? 'selected' : '';
         optionsHtml += /*HTML*/`
-            <option>${continent}</option>
+            <option ${selected}>${continent}</option>
         `;
     }
     return /*HTML*/`
-        <select>
+        <select onchange="filterByContinent(this.value)">
+            <option value="">Vis alle</option>
+            <option value="undefined">Mangler kontinent</option>
             ${optionsHtml}
         </select>
     `;
 }
 
 function sort(countries) {
+    countries = [...countries];
     const sortField = model.sort.field;
     if (sortField != null) {
         const direction = model.sort.direction;
         countries.sort((countryA, countryB) => countryA[sortField] == countryB[sortField] ? 0 :
             countryA[sortField] > countryB[sortField] ? direction : -direction
         );
-    }    
+    }
+    return countries;
 }
 
 function getSortButtonsHtml(sortField) {

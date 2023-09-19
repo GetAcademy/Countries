@@ -27,3 +27,20 @@ function findContinent(country) {
     }
     return null;
 }
+
+function filterByContinent(country) {
+    if (country == '') country = null;
+    if (country == 'undefined') country = undefined;
+    model.filter.continent = country;
+    updateView();
+}
+
+function goToPage(pageNo) {
+    model.paging.pageIndex = pageNo - 1;
+    updateView();
+}
+
+function setPageSize(pageSize){
+    model.paging.pageSize = pageSize;
+    updateView();
+}

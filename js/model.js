@@ -5,6 +5,11 @@ const model = {
     },
     filter: {
         continents: [],
+        continent: null,
+    },
+    paging: {
+        pageIndex: 0,
+        pageSize: 10,
     },
     costStats: [
         {
