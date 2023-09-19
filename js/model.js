@@ -3,6 +3,9 @@ const model = {
         field: null,
         direction: null,
     },
+    filter: {
+        continents: [],
+    },
     costStats: [
         {
             rank: 1,

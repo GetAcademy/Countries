@@ -11,6 +11,10 @@ function updateView() {
         <table>
             <tr>
                 <th>Land ${getSortButtonsHtml('country')}</th>
+                <th>
+                    Kontinent ${getSortButtonsHtml('continent')}
+                    ${createContinentSelectHtml()}
+                </th>
                 <th>Pris øl ${getSortButtonsHtml('beer')}</th>
                 <th>Pris vin ${getSortButtonsHtml('wine')}</th>
                 <th>Pris kaffe ${getSortButtonsHtml('coffee')}</th>
@@ -19,6 +23,21 @@ function updateView() {
             </tr>
             ${createCountryRowsHtml(countries)}
         </table>
+    `;
+}
+
+function createContinentSelectHtml(){
+    const continents = model.filter.continents;
+    let optionsHtml = '';
+    for(let continent of continents){
+        optionsHtml += /*HTML*/`
+            <option>${continent}</option>
+        `;
+    }
+    return /*HTML*/`
+        <select>
+            ${optionsHtml}
+        </select>
     `;
 }
 
@@ -51,6 +70,7 @@ function createCountryRowsHtml(countries) {
         countriesHtml += /*HTML*/ `
             <tr>
                 <td>${country.country}</td>
+                <td>${country.continent}</td>
                 <td>${country.beer}</td>
                 <td>${country.wine}</td>
                 <td>${country.coffee}</td>
